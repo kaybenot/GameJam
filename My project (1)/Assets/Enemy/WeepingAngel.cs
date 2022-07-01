@@ -6,7 +6,7 @@ public class WeepingAngel : MonoBehaviour
     public float speed = 5f;
     private new Camera camera;
     private new Renderer renderer;
-
+    private bool chase = true;
     private void Start()
     {
         //player = GameObject.FindGameObjectWithTag("Player");
@@ -20,9 +20,12 @@ public class WeepingAngel : MonoBehaviour
             GeometryUtility.CalculateFrustumPlanes(camera),
             renderer.bounds);
 
-        if (!isVisible)
+        if (!isVisible && chase == true) 
+        {
             TryMovingTowardsPlayer();
+        }
     }
+    
 
     private void TryMovingTowardsPlayer()
     {
@@ -37,4 +40,12 @@ public class WeepingAngel : MonoBehaviour
         lookPos.y = 0;
         transform.rotation = Quaternion.LookRotation(lookPos);
     }
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.tag == "Player")
+            {
+                Debug.Log("Gracz dotkniêty");
+            chase = false;
+            }
+        }
 }
