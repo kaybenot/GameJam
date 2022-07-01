@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,9 +10,9 @@ public class RoomGenerator : MonoBehaviour
 
     public void Deinstanciate()
     {
-        foreach(var i in instantiated)
+        foreach (var i in instantiated)
         {
-            if(currentRoom == i)
+            if (currentRoom == i)
                 continue;
             Destroy(i);
         }
@@ -28,7 +27,7 @@ public class RoomGenerator : MonoBehaviour
 
     public void InstantiateAroundRoom(Room room)
     {
-        foreach(var i in room.spawnLocations)
+        foreach (var i in room.spawnLocations)
         {
             int rand = Random.Range(0, rooms.Count);
             Vector3 spawnShift = rooms[rand].GetComponent<Room>().spawnShift;
@@ -44,6 +43,6 @@ public class RoomGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
