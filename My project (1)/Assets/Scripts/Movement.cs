@@ -62,57 +62,60 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        if(shouldDie || isDead)
+        if(controller.enabled)
         {
-            if(!isDead && !triggerRespawn){
-                epsilon = 0.0f;
-                cameraPosition = mainCamera.transform.position;
-                cameraRotation = (mainCamera.transform.rotation).eulerAngles;
-                isDead = true;
-            }
-            mainCamera.transform.rotation = Quaternion.Euler(Vector3.Lerp(cameraRotation, new Vector3(cameraRotation.x, cameraRotation.y, cameraRotation.z + 90), epsilon));
-            mainCamera.transform.position = Vector3.Lerp(cameraPosition, new Vector3(cameraPosition.x, cameraPosition.y - 1.6f, cameraPosition.z), epsilon);
-            deathOverlay.color = new Color(0.0f,0.0f,0.0f,Mathf.Clamp((epsilon - 0.5f) * 3.0f, 0.0f, 1.0f));
-            if (epsilon < 1.0f)
+            if(shouldDie || isDead)
             {
-                epsilon += 0.3f * Time.deltaTime;
+                if(!isDead && !triggerRespawn){
+                    epsilon = 0.0f;
+                    cameraPosition = mainCamera.transform.position;
+                    cameraRotation = (mainCamera.transform.rotation).eulerAngles;
+                    isDead = true;
+                }
+                mainCamera.transform.rotation = Quaternion.Euler(Vector3.Lerp(cameraRotation, new Vector3(cameraRotation.x, cameraRotation.y, cameraRotation.z + 90), epsilon));
+                mainCamera.transform.position = Vector3.Lerp(cameraPosition, new Vector3(cameraPosition.x, cameraPosition.y - 1.6f, cameraPosition.z), epsilon);
+                deathOverlay.color = new Color(0.0f,0.0f,0.0f,Mathf.Clamp((epsilon - 0.5f) * 3.0f, 0.0f, 1.0f));
+                if (epsilon < 1.0f)
+                {
+                    epsilon += 0.3f * Time.deltaTime;
+                }
+                else
+                {
+                    triggerRespawn = true;
+                    isDead = false;
+                    shouldDie = false;
+                }
             }
             else
             {
-                triggerRespawn = true;
-                isDead = false;
-                shouldDie = false;
-            }
-        }
-        else
-        {
-            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-            if(isGrounded)
-            {
-                velocity.y = -2f;
-            }
-            
-            float x = Input.GetAxis("Horizontal");
-            float z = Input.GetAxis("Vertical");
-            Vector3 move = transform.right * x + transform.forward * z;
-            
-            if(Input.GetButton("Sprint"))
-            {
-                speed = sprinting_speed;
-            }
-            else
-            {
-                speed = walking_speed;
-            }
-            
-            controller.Move(move * speed * Time.deltaTime);
-            if(Input.GetButton("Jump") && isGrounded)
-            {
-                velocity.y += Mathf.Sqrt(jumpHeight * -2f * gravity);
-            }
+                isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+                if(isGrounded)
+                {
+                    velocity.y = -2f;
+                }
+                
+                float x = Input.GetAxis("Horizontal");
+                float z = Input.GetAxis("Vertical");
+                Vector3 move = transform.right * x + transform.forward * z;
+                
+                if(Input.GetButton("Sprint"))
+                {
+                    speed = sprinting_speed;
+                }
+                else
+                {
+                    speed = walking_speed;
+                }
+                
+                controller.Move(move * speed * Time.deltaTime);
+                if(Input.GetButton("Jump") && isGrounded)
+                {
+                    velocity.y += Mathf.Sqrt(jumpHeight * -2f * gravity);
+                }
 
-            velocity.y += gravity * Time.deltaTime;
-            controller.Move(velocity * Time.deltaTime);
+                velocity.y += gravity * Time.deltaTime;
+                controller.Move(velocity * Time.deltaTime);
+            }
         }
     }
 }
