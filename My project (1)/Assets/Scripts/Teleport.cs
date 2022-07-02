@@ -9,20 +9,19 @@ public class Teleport : MonoBehaviour
 
     private bool used = false;
 
-    IEnumerator changeWorlds()
+    public void changeWorlds()
     {
         worldOne.SetActive(!worldOne.activeSelf);
         worldTwo.SetActive(!worldTwo.activeSelf);
-        yield return null;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(!used)
         {
-            Debug.Log("asd");
             used = true;
-            StartCoroutine(changeWorlds());
+            BlackOut.blackOut();
+            Invoke("changeWorlds", 1f);
         }
     }
 }
