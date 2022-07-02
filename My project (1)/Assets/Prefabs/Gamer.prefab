@@ -68,7 +68,7 @@ MonoBehaviour:
   controller: {fileID: 6854124843692152924}
   flashlight: {fileID: 7498755366334820389}
   player: {fileID: 460238213800919334}
-  respawnPosition: {x: 796.5588, y: 100.7364, z: 223.4866}
+  respawnPosition: {x: 796.5588, y: 102.5364, z: 223.4866}
   respawnOrientation: {x: 0.17, y: -35.24, z: 0}
   deathOverlay: {fileID: 0}
   mainCamera: {fileID: 7086500502307523607}
@@ -144,7 +144,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 200
+  far clip plane: 250
   field of view: 60
   orthographic: 0
   orthographic size: 5
