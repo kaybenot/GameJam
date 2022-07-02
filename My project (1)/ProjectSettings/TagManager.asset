@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ScriptManager
   - BlackOut
+  - Paper
   layers:
   - Default
   - TransparentFX
