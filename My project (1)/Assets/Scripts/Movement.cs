@@ -5,8 +5,10 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public CharacterController controller;
-    public float speed = 12f;
-    public float gravity = -9.81f;
+    private float speed = 12f;
+    public float walking_speed = 12f;
+    public float sprinting_speed = 25f;
+    public float gravity = -40f;
 
     Vector3 velocity;
 
@@ -26,7 +28,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        if(isGrounded && velocity.y < 0)
+        if(isGrounded)
         {
             velocity.y = -2f;
         }
@@ -35,6 +37,14 @@ public class Movement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
         Vector3 move = transform.right * x + transform.forward * z;
         
+        if(Input.GetButton("Sprint"))
+        {
+            speed = sprinting_speed;
+        }
+        else
+        {
+            speed = walking_speed;
+        }
 
         controller.Move(move * speed * Time.deltaTime);
 
