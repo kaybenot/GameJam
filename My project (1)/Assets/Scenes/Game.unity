@@ -15268,6 +15268,7 @@ GameObject:
   - component: {fileID: 937365598}
   - component: {fileID: 937365600}
   - component: {fileID: 937365599}
+  - component: {fileID: 937365601}
   m_Layer: 0
   m_Name: CatWalkBase (2)
   m_TagString: Untagged
@@ -15340,6 +15341,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 937365597}
   m_Mesh: {fileID: 4300006, guid: cf1d360fe5433904caf8ea54131c67b0, type: 3}
+--- !u!65 &937365601
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937365597}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0000045, y: 2.0000055, z: 0.040004287}
+  m_Center: {x: 0.00072011293, y: -0.00056615495, z: 0.01571884}
 --- !u!1 &938604477
 GameObject:
   m_ObjectHideFlags: 0
@@ -29658,6 +29672,7 @@ GameObject:
   - component: {fileID: 1623533139}
   - component: {fileID: 1623533141}
   - component: {fileID: 1623533140}
+  - component: {fileID: 1623533142}
   m_Layer: 0
   m_Name: CatWalkBase
   m_TagString: Untagged
@@ -29730,6 +29745,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1623533138}
   m_Mesh: {fileID: 4300006, guid: cf1d360fe5433904caf8ea54131c67b0, type: 3}
+--- !u!65 &1623533142
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623533138}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0000036, y: 2.0000048, z: 0.040003944}
+  m_Center: {x: 0.0006886426, y: -0.00056615577, z: 0.015657805}
 --- !u!1 &1629883012
 GameObject:
   m_ObjectHideFlags: 0
@@ -53446,7 +53474,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2757051381780299352}
   m_LocalRotation: {x: -0.55233455, y: -0.44606623, z: 0.40895402, w: 0.5733308}
-  m_LocalPosition: {x: 2.258, y: 12.401, z: 1.5195007}
+  m_LocalPosition: {x: 2.915, y: 12.255, z: 1.525}
   m_LocalScale: {x: 1.75, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
