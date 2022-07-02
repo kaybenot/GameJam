@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CastleTrigger : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class CastleTrigger : MonoBehaviour
     public GameObject prompt;
     public GameObject[] uiElements;
     public CharacterController player;
+    public TMP_InputField textField;
 
     void Update()
     {
