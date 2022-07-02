@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Movement : MonoBehaviour
 {
     public CharacterController controller;
+    public Light flashlight;
     public GameObject player;
     public Vector3 respawnPosition, respawnOrientation;
     public Image deathOverlay;
