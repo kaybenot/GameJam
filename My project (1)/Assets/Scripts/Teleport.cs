@@ -14,7 +14,6 @@ public class Teleport : MonoBehaviour
     {
         worldOne.SetActive(!worldOne.activeSelf);
         worldTwo.SetActive(!worldTwo.activeSelf);
-        sepia.EnableSepia();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -23,6 +22,7 @@ public class Teleport : MonoBehaviour
         {
             used = true;
             BlackOut.blackOut();
+            sepia.Invoke("EnableSepia", 1f);
             Invoke("changeWorlds", 1f);
         }
     }
