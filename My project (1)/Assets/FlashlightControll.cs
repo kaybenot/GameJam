@@ -7,19 +7,17 @@ public class FlashlightControll : MonoBehaviour
     public float flashlightIntensity;
     void OnTriggerEnter(Collider other)
     {
-        Light ll = other.GetComponentInChildren<Light>();
-        if(ll != null)
-        {
-            ll.intensity = flashlightIntensity;
+        FlashLightPlayerHandler flc = other.GetComponentInChildren<FlashLightPlayerHandler>();
+        if(flc != null){
+            flc.pushVolume();
         }
     }
 
     void OnTriggerExit(Collider other)
     {        
-        Light ll = other.GetComponentInChildren<Light>();
-        if(ll != null)
-        {
-            ll.intensity = 0.0f;
+        FlashLightPlayerHandler flc = other.GetComponentInChildren<FlashLightPlayerHandler>();
+        if(flc != null){
+            flc.popVolume();
         }
     }
 }
