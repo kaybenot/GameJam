@@ -12,6 +12,7 @@ TagManager:
   - Ground
   - Water
   - UI
+  - skybox
   - 
   - 
   - 
@@ -36,8 +37,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - DeathOverlay
   m_SortingLayers:
   - name: Default
     uniqueID: 0

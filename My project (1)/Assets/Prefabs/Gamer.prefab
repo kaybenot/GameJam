@@ -66,6 +66,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 6854124843692152924}
+  respawnPosition: {x: 796.5588, y: 100.7364, z: 223.4866}
+  respawnOrientation: {x: 0.17, y: -35.24, z: 0}
+  deathOverlay: {fileID: 0}
+  mainCamera: {fileID: 7086500502307523607}
   walking_speed: 12
   sprinting_speed: 25
   gravity: -40
@@ -73,7 +77,10 @@ MonoBehaviour:
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
+  deathMask:
+    serializedVersion: 2
+    m_Bits: 16
   jumpHeight: 3
 --- !u!1 &1051366961557455439
 GameObject:
@@ -134,7 +141,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 3000
   field of view: 60
   orthographic: 0
   orthographic size: 5
