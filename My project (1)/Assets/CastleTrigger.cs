@@ -10,7 +10,19 @@ public class CastleTrigger : MonoBehaviour
     public GameObject prompt;
     public GameObject[] uiElements;
     public CharacterController player;
-    public TMP_InputField textField;
+    public TMP_Text textField;
+
+    void OnGUI()
+    {
+        if(triggerActive)
+        {
+            Event e = Event.current;
+            if(e.isKey)
+            {
+                textField.text += e.keyCode;
+            }
+        }
+    }
 
     void Update()
     {
@@ -25,6 +37,7 @@ public class CastleTrigger : MonoBehaviour
                     uiElements[i].SetActive(toggleElements);
                 }
                 toggleElements = !toggleElements;
+                textField.text = "";
                 player.enabled = toggleElements;
             }
         }
