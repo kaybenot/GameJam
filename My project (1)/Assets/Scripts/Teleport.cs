@@ -6,6 +6,7 @@ public class Teleport : MonoBehaviour
 {
     public GameObject worldOne;
     public GameObject worldTwo;
+    public Sepia sepia;
 
     private bool used = false;
 
@@ -13,6 +14,7 @@ public class Teleport : MonoBehaviour
     {
         worldOne.SetActive(!worldOne.activeSelf);
         worldTwo.SetActive(!worldTwo.activeSelf);
+        sepia.EnableSepia();
     }
 
     private void OnTriggerEnter(Collider other)
