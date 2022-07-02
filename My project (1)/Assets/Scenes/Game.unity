@@ -18348,7 +18348,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh295566
+  m_Name: pb_Mesh35584
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -28140,7 +28140,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh295670
+  m_Name: pb_Mesh35688
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -32892,6 +32892,7 @@ GameObject:
   - component: {fileID: 1834625740}
   - component: {fileID: 1834625742}
   - component: {fileID: 1834625741}
+  - component: {fileID: 1834625743}
   m_Layer: 0
   m_Name: CatWalkBase (2)
   m_TagString: Untagged
@@ -32964,6 +32965,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1834625739}
   m_Mesh: {fileID: 4300006, guid: cf1d360fe5433904caf8ea54131c67b0, type: 3}
+--- !u!65 &1834625743
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834625739}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0000045, y: 2.0000055, z: 0.040004287}
+  m_Center: {x: 0.00072011293, y: -0.00056615495, z: 0.01571884}
 --- !u!4 &1838278353 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: a10d1f3307879f24fa4403887422c73f,
@@ -59768,6 +59782,7 @@ GameObject:
   - component: {fileID: 5481278572541112896}
   - component: {fileID: 5481278572543980128}
   - component: {fileID: 5481278572542881952}
+  - component: {fileID: 5481278572543980129}
   m_Layer: 0
   m_Name: CatWalkBase
   m_TagString: Untagged
@@ -59874,6 +59889,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5481278572540882528}
   m_Mesh: {fileID: 4300006, guid: cf1d360fe5433904caf8ea54131c67b0, type: 3}
+--- !u!65 &5481278572543980129
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5481278572540882528}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0000036, y: 2.0000048, z: 0.040003944}
+  m_Center: {x: 0.0006886426, y: -0.00056615577, z: 0.015657805}
 --- !u!1001 &5489533568892791004
 PrefabInstance:
   m_ObjectHideFlags: 0
