@@ -66,6 +66,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 6854124843692152924}
+  player: {fileID: 460238213800919334}
   respawnPosition: {x: 796.5588, y: 100.7364, z: 223.4866}
   respawnOrientation: {x: 0.17, y: -35.24, z: 0}
   deathOverlay: {fileID: 0}
@@ -141,7 +142,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 3000
+  far clip plane: 2000
   field of view: 60
   orthographic: 0
   orthographic size: 5
