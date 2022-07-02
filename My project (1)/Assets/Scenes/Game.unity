@@ -25429,6 +25429,8 @@ MonoBehaviour:
   - You have demencia
   - You have to find 3 codes
   - and run away through the gate
+  - Use M key to check photographies
+  - that may help you finding clues where to go
   timePerLine: 3
 --- !u!222 &1345138546
 CanvasRenderer:
