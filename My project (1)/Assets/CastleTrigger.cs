@@ -8,52 +8,75 @@ public class CastleTrigger : MonoBehaviour
     private bool triggerActive = false;
     private bool toggleElements = true;
     public GameObject prompt;
-    public GameObject[] uiElements;
+    public GameObject passGUI;
     public CharacterController player;
     public TMP_Text textField;
+    public GameObject enterText;
+
+    private string buff;
 
     void OnGUI()
     {
-        if(triggerActive)
+        if (Event.current.isKey && Event.current.type == EventType.KeyDown)
         {
-            Event e = Event.current;
-            if(e.isKey)
-            {
-                textField.text += e.keyCode;
-            }
+            buff += Event.current.keyCode;
         }
+    }
+
+    public void FinishGame()
+    {
+        BlackOut.blackOutPernament();
     }
 
     void Update()
     {
         if(triggerActive)
         {
-            prompt.SetActive(true);
-            if(Input.GetButtonDown("Interact"))
+            if(Input.GetButtonDown("Submit"))
             {
-                Debug.Log("temp");
-                for (int i = 0; i < uiElements.Length; i++)
+                if(textField.text != "AST")
                 {
-                    uiElements[i].SetActive(toggleElements);
+                    prompt.SetActive(false);
+                    textField.text = "";
+                    buff = "";
                 }
+                else
+                {
+                    passGUI.SetActive(false);
+                    enterText.SetActive(false);
+                    prompt.SetActive(false);
+                    FinishGame();
+                    triggerActive = false;
+                }
+            }
+            else if(Input.GetButtonDown("Interact"))
+            {
+                prompt.SetActive(!prompt.activeSelf);
+                enterText.SetActive(!enterText.activeSelf);
+                passGUI.SetActive(!passGUI.activeSelf);
                 toggleElements = !toggleElements;
                 textField.text = "";
                 player.enabled = toggleElements;
+                buff = "";
             }
-        }
-        else
-        {
-            prompt.SetActive(false);
+            else if(passGUI.activeSelf)
+            {
+                if(buff.Length > 0)
+                    textField.text += buff[0];
+                buff = "";
+            }
         }
     }
 
     void OnTriggerEnter()
     {
        triggerActive = true;
+       prompt.SetActive(true);
     }
 
     void OnTriggerExit()
     {
         triggerActive = false;
+        prompt.SetActive(false);
     }
 }
