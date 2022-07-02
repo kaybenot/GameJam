@@ -5643,6 +5643,11 @@ PrefabInstance:
       propertyPath: groundMask.m_Bits
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6854124843692152924, guid: c8a4b83101caed84f919ec436c77992b,
+        type: 3}
+      propertyPath: m_StepOffset
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 7086500502307523607, guid: c8a4b83101caed84f919ec436c77992b,
         type: 3}
       propertyPath: m_ClearFlags
