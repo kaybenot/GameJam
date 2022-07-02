@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Movement : MonoBehaviour
 {
     public CharacterController controller;
+    public Light flashlight;
     public GameObject player;
     public Vector3 respawnPosition, respawnOrientation;
     public Image deathOverlay;
@@ -25,12 +26,14 @@ public class Movement : MonoBehaviour
     public LayerMask deathMask;
     bool isGrounded;
     bool shouldDie, isDead;
+    bool triggerRespawn = true;
 
     public float jumpHeight = 3f;
     private float epsilon = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
+        triggerRespawn = false;
         deathOverlay.color = new Color(0.0f,0.0f,0.0f,0.0f);
         isDead = false;
         float[] distances = new float[32];
@@ -39,12 +42,29 @@ public class Movement : MonoBehaviour
     }
 
     // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (triggerRespawn)
+        {
+            mainCamera.transform.position = cameraPosition;
+            mainCamera.transform.rotation = Quaternion.Euler(cameraRotation);
+            player.transform.position = respawnPosition;
+            player.transform.rotation = Quaternion.Euler(respawnOrientation);
+            controller.transform.position = respawnPosition;
+            controller.transform.rotation = Quaternion.Euler(respawnOrientation);
+            shouldDie = false;
+            isDead = false;
+            deathOverlay.color = new Color(0.0f,0.0f,0.0f,0.0f);
+            triggerRespawn = false;
+        }
+        shouldDie = Physics.CheckSphere(groundCheck.position, groundDistance, deathMask);
+    }
+
     void Update()
     {
-        shouldDie = Physics.CheckSphere(groundCheck.position, groundDistance, deathMask);
         if(shouldDie || isDead)
         {
-            if(!isDead){
+            if(!isDead && !triggerRespawn){
                 epsilon = 0.0f;
                 cameraPosition = mainCamera.transform.position;
                 cameraRotation = (mainCamera.transform.rotation).eulerAngles;
@@ -55,15 +75,13 @@ public class Movement : MonoBehaviour
             deathOverlay.color = new Color(0.0f,0.0f,0.0f,Mathf.Clamp((epsilon - 0.5f) * 3.0f, 0.0f, 1.0f));
             if (epsilon < 1.0f)
             {
-                epsilon += 0.001f;
+                epsilon += 0.3f * Time.deltaTime;
             }
             else
             {
-                player.transform.position = respawnPosition;
-                player.transform.rotation = Quaternion.Euler(respawnOrientation);
-                shouldDie = false;
+                triggerRespawn = true;
                 isDead = false;
-                deathOverlay.color = new Color(0.0f,0.0f,0.0f,0.0f);
+                shouldDie = false;
             }
         }
         else
